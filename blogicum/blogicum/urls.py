@@ -8,7 +8,8 @@ from blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('django.contrib.auth.urls')),
-    path('auth/registration/', views.RegistrationView.as_view(), name='registration'),
+    path('auth/registration/',
+         views.RegistrationView.as_view(), name='registration'),
     path('', include('blog.urls', namespace='blog')),
     path('pages/', include('pages.urls', namespace='pages')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
